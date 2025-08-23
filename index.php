@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analisis Followers</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -88,21 +89,21 @@ function tampilkanList($judul, $data, $ikon = '', $color = '') {
 ?>
 
 <div class="container">
-    <header class="text-center mb-8">
+    <header class="text-center mb-8" data-aos="fade-down">
         <h1 class="text-4xl font-extrabold text-blue-600 mb-2">📊 Analisis Followers Instagram</h1>
         <p class="text-lg text-gray-600">Laporan untuk akun <b>cold.joo</b></p>
     </header>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-center mb-8">
-        <div class="p-6 bg-blue-50 rounded-lg shadow">
+        <div class="p-6 bg-blue-50 rounded-lg shadow" data-aos="fade-right" data-aos-delay="250">
             <h2 class="text-3xl font-bold text-blue-600"><?= count($followers) ?></h2>
             <p class="text-gray-500">Total Followers</p>
         </div>
-        <div class="p-6 bg-green-50 rounded-lg shadow">
+        <div class="p-6 bg-green-50 rounded-lg shadow" data-aos="fade-left" data-aos-delay="600">
             <h2 class="text-3xl font-bold text-green-600"><?= count($followings) ?></h2>
             <p class="text-gray-500">Total Following</p>
         </div>
     </div>
-    <main class="space-y-8">
+    <main class="space-y-8" data-aos="fade-up" data-aos-delay="900">
         <?php
         tampilkanList('Yang tidak follback kamu', $not_following_back, '🔻', 'red');
         tampilkanList('Akun yang tidak kamu follback', $not_followed_back, '🔺', 'blue');
@@ -133,6 +134,9 @@ function tampilkanList($judul, $data, $ikon = '', $color = '') {
         }, 2000);
     }
 </script>
-
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
 </body>
 </html>
